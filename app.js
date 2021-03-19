@@ -26,6 +26,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
+//puto alay 
+
+
 //- Invocamos a dotenv
 const dotenv = require('dotenv');
 dotenv.config({ path: './env/.env'});
