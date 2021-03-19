@@ -42,7 +42,6 @@ module.exports = {
              res.redirect('/usuarios');
         })
     },
-
     editar: function (req, res) {
         usuario.retornarDatosID(conexion, req.params.id, function (error, registros) {
             console.log(registros[0]);
