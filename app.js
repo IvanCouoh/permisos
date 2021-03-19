@@ -1,3 +1,7 @@
+// GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -20,6 +24,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+
+// sakcakc askc askc askc sak csk
+
+
 
 //- Invocamos a dotenv
 const dotenv = require('dotenv');
