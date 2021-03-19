@@ -18,7 +18,15 @@ module.exports = {
         console.log(req.body);
         console.log(req.file.filename);
         usuario.insertar(conexion, req.body, req.file, function (err) {
-            res.redirect('/usuarios');
+            res.render('usuarios/crear', {
+                alert: true,
+                alertTitle: "Registro",
+                alertMessage: "Se ha registrado correctamente el usuario.",
+                alertIcon: 'success',
+                showConfirmButton: false,
+                timer: 1500,
+                ruta: 'usuarios'
+            });
         })
     },
 
@@ -30,8 +38,8 @@ module.exports = {
                 borrar.unlinkSync(nombreImagen);
             }
             usuario.borrar(conexion, req.params.id, function (error) {
-                res.redirect('/usuarios');
             })
+             res.redirect('/usuarios');
         })
     },
 
@@ -56,8 +64,17 @@ module.exports = {
             }
         }
         if (req.body.nombre || req.body.email || req.body.pass) {
-            usuario.actualizar(conexion, req.body, function (error) { })
+            usuario.actualizar(conexion, req.body, function (error) { 
+                res.render('usuarios/crear', {
+                    alert: true,
+                    alertTitle: "Actualización",
+                    alertMessage: "El usuario se ha actualizado correctamente.",
+                    alertIcon: 'success',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    ruta: 'usuarios'
+                });
+            })
         }
-        res.redirect('/usuarios');
     }
 }

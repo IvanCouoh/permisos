@@ -16,7 +16,6 @@ var cargar = multer({
     storage: rutaAlmacen
 })
 
-
 /* GET home page. */
 router.get('/', usuariosController.index);
 router.get('/crear', usuariosController.crear);
