@@ -26,14 +26,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
-// sakcakc askc askc askc sak csk
-
-//puto seco chinga tu madre asqueroso
-
-//puto alay 
-
-
 //- Invocamos a dotenv
 const dotenv = require('dotenv');
 dotenv.config({ path: './env/.env'});
