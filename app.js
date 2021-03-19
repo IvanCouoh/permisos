@@ -21,6 +21,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+//puto seco chinga tu madre asqueroso
+
+
+
 //- Invocamos a dotenv
 const dotenv = require('dotenv');
 dotenv.config({ path: './env/.env'});
