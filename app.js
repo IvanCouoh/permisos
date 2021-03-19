@@ -26,8 +26,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+<<<<<<< HEAD
 
 // sakcakc askc askc askc sak csk
+=======
+//puto seco chinga tu madre asqueroso
+>>>>>>> d6a80e3279920df1f7d884f8dff8e1543e99fd92
 
 
 
