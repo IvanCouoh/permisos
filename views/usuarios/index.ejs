@@ -1,0 +1,59 @@
+<%- include ../layout/backOffice/header.ejs %> <br /><br />
+<a href="/usuarios/crear" class="btn btn-primary">Crear nuevo usuario</a>
+<br /><br />
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Correo electronico</th>
+      <th scope="col">Contraseña</th>
+      <th scope="col">Imagen</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for( let usuario = 0; usuario < usuarios.length; usuario++ ) { %>
+    <tr>
+      <td><%=usuarios[usuario].nombre %></td>
+      <td><%=usuarios[usuario].email %></td>
+      <td><%=usuarios[usuario].pass %></td>
+      <td>
+        <img
+          class="img-thumbnail"
+          width="100"
+          src="/images/<%=usuarios[usuario].imagen %>"
+          alt=""
+        />
+      </td>
+      <td>
+        <div
+          class="btn-group-vertical"
+          role="group"
+          aria-label="Vertical button group"
+        >
+          <form
+            class="form-inline"
+            method="GET"
+            action="/usuarios/editar/<%=usuarios[usuario].id %>"
+          >
+            <button class="btn btn-warning" type="submit">Editar</button>
+          </form>
+        </div>
+        <div
+          class="btn-group-vertical"
+          role="group"
+          aria-label="Vertical button group"
+        >
+          <form
+            class="form-inline"
+            method="POST"
+            action="/usuarios/eliminar/<%=usuarios[usuario].id %>"
+          >
+            <button class="btn btn-danger" type="submit">Eliminar</button>
+          </form>
+        </div>
+      </td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
