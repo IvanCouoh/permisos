@@ -2,6 +2,7 @@ var conexion = require('../config/conexion');
 var usuario = require('../models/usuarioModel');
 var borrar = require('fs');
 
+
 module.exports = {
     index: function (req, res) {
         usuario.obtener(conexion, function (error, datos) {
