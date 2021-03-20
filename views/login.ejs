@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/stylesheets/style.css" />
-  <title>Document</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login</title>
+    <link rel="stylesheet" href="stylesheets/login.css">
 </head>
+<body>
+	<div class="login-form">
+		<h1>Login con Node Js</h1>
+		<form action="/auth" method="POST">
+			<input type="text" name="user" placeholder="User" autofocus required>
+			<input type="password" name="pass" placeholder="Password" required>
+			<input type="submit" class="btn-login" value="Login">
+		</form>
+		<a href="register" class="btn-register">Register</a>
+		
+		
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-<body class="body__login">
-  <form action="auth" method="POST" class="form__login">
-    <h2 class="h2__login">Iniciar sesión</h2>
-    <input class="input__login" id="user" type="text" name="usuario" placeholder="Nombre de usuario" required />
-    <input class="input__login" id="password" type="password" name="password" placeholder="Contraseña" required />
-    <input class="inputbtn__login" type="submit" value="Acceder" />
-  </form>
+  
+	</div>
 </body>
-
 </html>

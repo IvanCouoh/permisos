@@ -4,10 +4,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var loginRouter = require('./routes/login');
 var usuariosRouter = require('./routes/usuarios');
 var seccionesRouter = require('./routes/secciones');
 
@@ -24,14 +22,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //invocando el modulo de la conexion 
-const connection = require('./config/conexion')
+
 
 //- Invocamos a dotenv
 const dotenv = require('dotenv');
 dotenv.config({ path: './env/.env'});
 
 // Invocamos a bycryptjs
-
+const bcrypt = require('bcryptjs');
 
 // invocamos a express session, variables de sesion
 const session = require('express-session');
@@ -43,7 +41,6 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/login', loginRouter);
 app.use('/usuarios', usuariosRouter)
 app.use('/secciones', seccionesRouter);
 
@@ -62,5 +59,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;

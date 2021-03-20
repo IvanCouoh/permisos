@@ -24,4 +24,5 @@ router.post('/eliminar/:id', usuariosController.eliminar);
 router.get('/editar/:id', usuariosController.editar);
 router.post('/actualizar', cargar.single('imagen'), usuariosController.actualizar);
 
+
 module.exports = router;
