@@ -22,6 +22,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//invocando el modulo de la conexion 
+const connection = require('./config/conexion')
 
 //- Invocamos a dotenv
 const dotenv = require('dotenv');
