@@ -1,9 +1,12 @@
+
+var bcryptjs = require('bcryptjs');
 module.exports = {
     obtener: function (conexion, funcion) {
         conexion.query('select * from usuarios', funcion)
     },
-    insertar: function (conexion, datos, imagen, funcion) {
-        conexion.query('insert into usuarios (nombre, email, pass, imagen) values (?,?,?,?)', [datos.nombre, datos.email, datos.pass, imagen.filename], funcion)
+    insertar: async function (conexion, datos, imagen, funcion) {
+        let passwordHaash = await bcryptjs.hash(datos.pass, 8)
+        conexion.query('insert into usuarios (nombre, email, pass, imagen) values (?,?,?,?)', [datos.nombre, datos.email, passwordHaash, imagen.filename], funcion)
     },
     retornarDatosID: function (conexion, id, funcion) {
         conexion.query('select * from usuarios where id = ?', [id], funcion)

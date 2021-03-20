@@ -12,7 +12,7 @@ module.exports = {
     },
 
     crear: function (req, res) {
-        res.render('usuarios/crear');
+        res.render ('usuarios/crear');
     },
 
     guardar: function (req, res) {

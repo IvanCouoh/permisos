@@ -31,7 +31,7 @@ const dotenv = require('dotenv');
 dotenv.config({ path: './env/.env'});
 
 // Invocamos a bycryptjs
-const btcryptjs = require('bcryptjs')
+
 
 // invocamos a express session, variables de sesion
 const session = require('express-session');
