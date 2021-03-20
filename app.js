@@ -8,7 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var usuariosRouter = require('./routes/usuarios');
 var seccionesRouter = require('./routes/secciones');
-
+var login = require('./routes/login');
 var app = express();
 
 // view engine setup
@@ -20,9 +20,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-//invocando el modulo de la conexion 
-
 
 //- Invocamos a dotenv
 const dotenv = require('dotenv');
@@ -43,6 +40,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/usuarios', usuariosRouter)
 app.use('/secciones', seccionesRouter);
+app.use('/login', login);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -59,7 +58,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
 
 
 module.exports = app;
