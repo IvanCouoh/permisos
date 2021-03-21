@@ -62,13 +62,9 @@ router.post("/session", (req, res) => {
 })
 
 
-
-
 router.get("/logueado", function (req, res, next) {
-    
     const loggeo = req.session.nombrelog;
     delete req.session.nombrelog;
-
     res.render("usuarios/logueado",{
         loggeo
     });
