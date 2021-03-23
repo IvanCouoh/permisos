@@ -41,32 +41,14 @@ router.get("/login", function (req, res, next) {
   const loggeoadmin = req.session.nombrelogadm;
   if (loggeo) {
     res.redirect("/secciones/inicio");
-  } 
-
-  if(loggeoadmin){
-
-    res.redirect("/usuarios");
   }
-  
-  else {
+
+  if (loggeoadmin) {
+    res.redirect("/usuarios");
+  } else {
     res.render("usuarios/login");
-
-    // req.session.destroy(() =>{
-
-    //   res.render("usuarios/login");
-    // })
   }
 });
-
-//   const loggeo = req.session.nombrelog;
-//   if (loggeo){
-//     res.redirect("/secciones/inicio");
-//   }
-//   else
-//   {
-//   res.render("usuarios/login");
-
-// }
 
 router.post("/session", (req, res) => {
   const { email, password } = req.body;
