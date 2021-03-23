@@ -9,7 +9,11 @@
     <header class="header">
       <div class="header__top">
         <h4 class="header__logo">Mi sitio web</h4>
-        <p>Usuario 1</p>
+        <% if (loggeo){ %> 
+          <p> <%=loggeo.email %>
+          </p>
+          <a href="/logoutadmin"> salir </a>
+          <% } %> 
       </div>
       <nav class="nav">
         <ul class="nav__ul">
@@ -18,6 +22,7 @@
           <li><a href="/secciones/ilustraciones" class="nav__item-link">Ilustraciones</a></li>
           <li><a href="/secciones/juegosdemesa" class="nav__item-link">Juegos de mesa</a></li>
           <li><a href="/secciones/videojuegos" class="nav__item-link">Videojuegos</a></li>
+         
         </ul>
       </nav>
     </header>

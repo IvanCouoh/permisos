@@ -8,4 +8,5 @@ router.get('/ilustraciones', seccioneController.ilustraciones);
 router.get('/juegosdemesa', seccioneController.juegosdemesa);
 router.get('/videojuegos', seccioneController.videojuegos);
 
+
 module.exports = router;

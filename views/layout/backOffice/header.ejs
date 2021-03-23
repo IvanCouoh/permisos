@@ -16,8 +16,17 @@
   <body>
     <header class="header">
       <div class="header__top header__top-color">
-        <h4 class="header__logo" style="margin: 0; font-size: 14pt;">Panel administrativo</h4>
-        <p style="margin: 0">Usuario 1</p>
+        <h4 class="header__logo" style="margin: 0; font-size: 14pt;">Panel administrativo </h4>
+        <% if (loggeo){ %> 
+        <p style="margin: 0"> <%=loggeo.email %>  </p>
+          <a href="/logoutadmin" > salir </a>
+        <% } %> 
+
+       
+       
+          
+        
+        
       </div>
     </header>
   </body>

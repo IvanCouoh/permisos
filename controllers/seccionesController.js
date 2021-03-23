@@ -1,18 +1,25 @@
+
+
 module.exports = {
     inicio: function (req, res) {
-        res.render('secciones/inicio', {title: 'Inicio'});
+        const loggeo = req.session.nombrelog;
+        res.render('secciones/inicio', {title: 'Inicio', loggeo});
     },
     fotos: function(req, res){
-        res.render('secciones/fotos', {title: 'Fotos'});
+        const loggeo = req.session.nombrelog;
+        res.render('secciones/fotos', {title: 'Fotos', loggeo});
     },
     ilustraciones: function (req, res) {
-        res.render('secciones/ilustraciones', {title: 'Ilustraciones'});
+        const loggeo = req.session.nombrelog;
+        res.render('secciones/ilustraciones', {title: 'Ilustraciones',loggeo});
     },
     juegosdemesa: function(req, res){
-        res.render('secciones/juegosdemesa', {title: 'Juegos de mesa'});
+        const loggeo = req.session.nombrelog;
+        res.render('secciones/juegosdemesa', {title: 'Juegos de mesa',loggeo});
     },
     videojuegos: function (req, res) {
-        res.render('secciones/videojuegos', {title: 'Videojuegos'});
+        const loggeo = req.session.nombrelog;
+        res.render('secciones/videojuegos', {title: 'Videojuegos',loggeo});
     },
 
 }
