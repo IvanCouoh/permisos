@@ -35,46 +35,53 @@ router.get("/login", function (req, res, next) {
 
 router.post("/session", (req, res) => {
   const { email, password } = req.body;
-  const datos = { email, password,};
+  const datos = { email, password };
+  const rol = 0;
   req.session.nombrelog = datos;
-  //console.log(req.session.nombrelog);
-   
+ 
   if (email && password) {
     conexion.query(
-      "SELECT * FROM usuarios WHERE email = ? AND pass = ?",[datos.email, datos.password],function (err, resultados) {
+      "SELECT email, pass, privilegio FROM usuarios WHERE email = ? AND pass = ? and privilegio = 'admin'",
+      [datos.email, datos.password],
+      function (err, resultados) {
         if (resultados.length > 0) {
-          
-            res.redirect('/logueado');
+          res.redirect("/usuarios");
         }
-        else {
-            res.render("usuarios/login", {
-                alert: true,
-                alertTitle: "Error",
-                alertMessage: "USUARIO y/o PASSWORD incorrectas",
-                alertIcon: "error",
-                showConfirmButton: true,
-                timer: false,
-                ruta: "login",
-              });
+      }
+    );
+  }
+
+  if (email && password) {
+    conexion.query(
+      "SELECT email, pass, privilegio FROM usuarios WHERE email = ? AND pass = ? and privilegio = 'usuario'",
+      [datos.email, datos.password],
+      function (err, resultados) {
+        if (resultados.length > 0) {
+          res.redirect("/secciones/inicio");
+        } else {
+          res.render("usuarios/login", {
+            alert: true,
+            alertTitle: "Error",
+            alertMessage: "USUARIO y/o PASSWORD incorrectas",
+            alertIcon: "error",
+            showConfirmButton: true,
+            timer: false,
+            ruta: "login",
+          });
         }
-        console.log(datos)
+        console.log(resultados);
         
-    
-    })
-    }
-
-})
-
+      }
+    );
+  }
+});
 
 router.get("/logueado", function (req, res, next) {
-    const loggeo = req.session.nombrelog;
-    delete req.session.nombrelog;
-    res.render("usuarios/logueado",{
-        loggeo
-    });
+  const loggeo = req.session.nombrelog;
+  delete req.session.nombrelog;
+  res.render("usuarios/logueado", {
+    loggeo,
   });
-
-
-
+});
 
 module.exports = router;
