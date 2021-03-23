@@ -35,14 +35,15 @@ router.get("/login", function (req, res, next) {
 
 router.post("/session", (req, res) => {
   const { email, password } = req.body;
-  const datos = { email, password };
+  const datos = { email, password,};
   req.session.nombrelog = datos;
-  console.log(req.session.nombrelog);
+  //console.log(req.session.nombrelog);
    
   if (email && password) {
     conexion.query(
       "SELECT * FROM usuarios WHERE email = ? AND pass = ?",[datos.email, datos.password],function (err, resultados) {
         if (resultados.length > 0) {
+          
             res.redirect('/logueado');
         }
         else {
@@ -56,7 +57,10 @@ router.post("/session", (req, res) => {
                 ruta: "login",
               });
         }
-        console.log(resultados)})
+        console.log(datos)
+        
+    
+    })
     }
 
 })

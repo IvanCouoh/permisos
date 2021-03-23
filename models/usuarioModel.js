@@ -1,5 +1,4 @@
 
-var bcryptjs = require('bcryptjs');
 module.exports = {
     obtener: function (conexion, funcion) {
         conexion.query('select * from usuarios', funcion)

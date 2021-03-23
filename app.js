@@ -37,13 +37,6 @@ dotenv.config({ path: './env/.env'});
 // Invocamos a bycryptjs
 const bcrypt = require('bcryptjs');
 
-// invocamos a express session, variables de sesion
-
-app.use(session({
-  secret: 'secret',
-  resave: true,
-  saveUninitialized: true
-}))
 
 app.use('/', loginRouter);
 app.use('/usuarios', usuariosRouter)
