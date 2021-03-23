@@ -38,12 +38,13 @@ router.get("/logoutadmin", function (req, res) {
 
 router.get("/login", function (req, res, next) {
   const loggeo = req.session.nombrelog;
-  const loggeoadmin = req.session.nombrelogadm;
+  const loggeoadm = req.session.nombrelogadm;
+  
   if (loggeo) {
     res.redirect("/secciones/inicio");
   }
 
-  if (loggeoadmin) {
+  if (loggeoadm) {
     res.redirect("/usuarios");
   } else {
     res.render("usuarios/login");

@@ -5,7 +5,6 @@ var borrar = require("fs");
 module.exports = {
   index: function (req, res) {
     const loggeo = req.session.nombrelogadm;
-
     if (loggeo) {
       usuario.obtener(conexion, function (error, datos) {
         console.log(datos);
