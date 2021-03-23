@@ -7,23 +7,38 @@ var borrar = require('fs');
 module.exports = {
 
     index: function (req, res) {
-        usuario.obtener(conexion, function (error, datos) {
-            console.log(datos);
-            const loggeo = req.session.nombrelog;
-            res.render('usuarios/index', { title: 'Aplicacion', usuarios: datos,loggeo});
-            console.log(loggeo)
-        })
+        const loggeo = req.session.nombrelogadm;
+
+        if (loggeo){
+
+            usuario.obtener(conexion, function (error, datos) {
+                console.log(datos);
+                
+                res.render('usuarios/index', { title: 'Aplicacion', usuarios: datos,loggeo});
+                console.log(loggeo)
+            })
+        }
+        else 
+
+        {     
+             res.redirect('/login');
+
+        }
+
+
+
+       
     },
 
     crear: function (req, res) {
-        const loggeo = req.session.nombrelog;
+        const loggeo = req.session.nombrelogadm;
         res.render ('usuarios/crear',{loggeo});
     },
 
     guardar: function (req, res) {
         console.log(req.body);
         console.log(req.file.filename);
-        const loggeo = req.session.nombrelog;
+        const loggeo = req.session.nombrelogadm;
         usuario.insertar(conexion, req.body, req.file, function (err) {
             res.render('usuarios/crear', { loggeo,
                 alert: true,
@@ -38,7 +53,7 @@ module.exports = {
     },
 
     eliminar: function (req, res) {
-        const loggeo = req.session.nombrelog;
+        const loggeo = req.session.nombrelogadm;
         console.log(req.params.id)
         usuario.retornarDatosID(conexion, req.params.id, function (error, registros) {
             var nombreImagen = 'public/images/' + (registros[0].imagen)
@@ -51,7 +66,7 @@ module.exports = {
         })
     },
     editar: function (req, res) {
-        const loggeo = req.session.nombrelog;
+        const loggeo = req.session.nombrelogadm;
         usuario.retornarDatosID(conexion, req.params.id, function (error, registros) {
             console.log(registros[0]);
             res.render('usuarios/editar', { usuarios: registros[0], loggeo });
@@ -72,7 +87,7 @@ module.exports = {
             }
         }
         if (req.body.nombre || req.body.email || req.body.pass) {
-            const loggeo = req.session.nombrelog;
+            const loggeo = req.session.nombrelogadm;
             usuario.actualizar(conexion, req.body, function (error) { 
                 res.render('usuarios/crear', {  loggeo,
                     alert: true,

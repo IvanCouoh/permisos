@@ -3,7 +3,25 @@
 module.exports = {
     inicio: function (req, res) {
         const loggeo = req.session.nombrelog;
-        res.render('secciones/inicio', {title: 'Inicio', loggeo});
+
+
+        if (loggeo){
+
+            res.render('secciones/inicio', {title: 'Inicio', loggeo}
+        
+
+            );
+        }
+        else 
+
+        {
+            
+             res.redirect('/login');
+
+
+        }
+
+      
     },
     fotos: function(req, res){
         const loggeo = req.session.nombrelog;
