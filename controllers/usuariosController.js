@@ -7,8 +7,7 @@ module.exports = {
     const loggeo = req.session.nombrelogadm;
     if (loggeo) {
       usuario.obtener(conexion, function (error, datos) {
-        console.log(datos);
-
+        //console.log(datos);
         res.render("usuarios/index", {
           title: "Aplicacion",
           usuarios: datos,

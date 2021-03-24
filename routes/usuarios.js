@@ -4,6 +4,7 @@ const usuariosController = require("../controllers/usuariosController");
 var conexion = require("../config/conexion");
 
 var multer = require("multer");
+const { query } = require("../config/conexion");
 var fecha = Date.now();
 var rutaAlmacen = multer.diskStorage({
   destination: function (request, file, callback) {
@@ -39,7 +40,7 @@ router.get("/logoutadmin", function (req, res) {
 router.get("/login", function (req, res, next) {
   const loggeo = req.session.nombrelog;
   const loggeoadm = req.session.nombrelogadm;
-  
+
   if (loggeo) {
     res.redirect("/secciones/inicio");
   }
@@ -58,7 +59,9 @@ router.post("/session", (req, res) => {
     conexion.query(
       "SELECT email, pass, privilegio FROM usuarios WHERE email = ? AND pass = ? and privilegio = 'admin'",
       [datos.email, datos.password],
-      function (err, resultados) {
+      function (err, resultados, fields) {
+        console.log(resultados);
+        
         if (resultados.length > 0) {
           req.session.nombrelogadm = datos;
           res.redirect("/usuarios");
@@ -86,7 +89,9 @@ router.post("/session", (req, res) => {
             ruta: "login",
           });
         }
-        console.log(resultados);
+       
+     
+        
       }
     );
   }
