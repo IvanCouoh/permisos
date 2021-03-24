@@ -17,13 +17,28 @@
   <body>
     <header class="header">
       <div class="header__top header__top-color">
-        <h4 class="header__logo" style="margin: 0; font-size: 14pt;">Panel administrativo </h4>
+        <h4 class="header__logo" style="margin: 0; font-size: 14pt">
+          Panel administrativo
+        </h4>
         <div class="header__datos-user">
-          <% if (loggeo){ %> 
-          <p style="margin: 0"> <%=loggeo.email %>  </p>
-            <a href="/logoutadmin" > salir </a>
-          <% } %> 
-
+          <% if (loggeo){ %>
+            <p style="margin: 0"><%=loggeo.email %></p>
+            <img
+              src="/images/1616182132762_perfil3.jpg"
+              alt=""
+              class="header__perfil"
+            />
+            <nav id="menu_gral">
+              <ul>
+                <li><a href="#"><a href="#"><box-icon name="chevron-down" type="solid"></box-icon></a></a>
+                    <ul>
+                      <li><a href="/logoutadmin"> salir </a></li>
+                    </ul>
+                </li>
+              <ul>
+            </nav>
+          <!-- <a href="/logoutadmin"> salir </a> -->
+          <% } %>
         </div>
       </div>
     </header>
