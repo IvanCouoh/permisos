@@ -45,20 +45,17 @@ body {
   gap: 10px;
 }
 
-#menu_gral ul {
-  list-style: none;
+#logout ul{
+  list-style-type: none; 
   text-align: center;
-  font-size: 0;
 }
 
-#menu_gral > ul li {
+#logout > ul li{
   display: inline-block;
-  width: 25%;
   position: relative;
-  background: #ffffff;
 }
 
-#menu_gral li a {
+ #logout li a { /* PENDIENTE */
   display: block;
   text-decoration: none;
   font-size: 1rem;
@@ -66,36 +63,22 @@ body {
   color: #444;
 }
 
-#menu_gral li:hover a, #menu_gral li a:focus {
-  background: #ffffff;
+#logout li:hover a, #logout li a:focus {
+  background: #7a7a7a;
   color: #fff;
 }
 
-#menu_gral li ul {
+#logout li ul {
   position: absolute;
   width: 0;
   overflow: hidden;
 }
-#menu_gral li:hover ul, #menu_gral li:focus ul {
+
+#logout li:hover ul, #logout li:focus ul {
   width: 100%;
   margin: 0 -4rem -4rem -4rem;
   padding: 0 4rem 4rem 4rem;
-  background:  #bbb;
   z-index: 5;
-}
-#menu_gral li li {
-  display: block;
-  width: 100%;
-}
-#menu_gral li:hover li a, #menu_gral li:focus li a {
-  font-family: monospace;
-  font-size: .9rem;
-  line-height: 1.7rem;
-  border-top: 1px solid #e5e5e5;
-  background: #444;
-}
-#menu_gral li li a:hover, #menu_gral li li a:focus {
-  background: #8AA9B8; 
 }
 
 
