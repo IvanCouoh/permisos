@@ -1,13 +1,19 @@
-module.exports = {
-  inicio: function (req, res) {
-    const loggeo = req.session.nombrelog;
+var express = require("express");
+var router = express.Router();
+var conexion = require("../config/conexion");
 
-    if (loggeo) {
-      res.render("secciones/inicio", { title: "Inicio", loggeo });
-    } else {
-      res.redirect("/login");
-    }
-  },
+
+module.exports = {
+  // inicio: function (req, res) {
+  //   const loggeo = req.session.nombrelog;
+  //   if (loggeo) {
+  //     res.render("secciones/inicio", { title: "Inicio", loggeo });
+  //   } else {
+  //     res.redirect("/login");
+  //   }
+  // },
+
+  
   fotos: function (req, res) {
     const loggeo = req.session.nombrelog;
     if (loggeo) {
