@@ -11,22 +11,20 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
     <title>Document</title>
   </head>
   <body>
     <header class="header">
       <div class="header__top header__top-color">
         <h4 class="header__logo" style="margin: 0; font-size: 14pt;">Panel administrativo </h4>
-        <% if (loggeo){ %> 
-        <p style="margin: 0"> <%=loggeo.email %>  </p>
-          <a href="/logoutadmin" > salir </a>
-        <% } %> 
+        <div class="header__datos-user">
+          <% if (loggeo){ %> 
+          <p style="margin: 0"> <%=loggeo.email %>  </p>
+            <a href="/logoutadmin" > salir </a>
+          <% } %> 
 
-       
-       
-          
-        
-        
+        </div>
       </div>
     </header>
   </body>
