@@ -4,16 +4,31 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link rel="stylesheet" href="/stylesheets/cssalert.css" />
+    <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
   </head>
   <body>
     <header class="header">
       <div class="header__top">
         <h4 class="header__logo">Mi sitio web</h4>
-        <% if (loggeo){ %> 
-          <p> <%=loggeo.email %>
-          </p>
-          <a href="/logoutadmin"> salir </a>
-          <% } %> 
+        <div class="header__datos-user">
+          <% if (loggeo){ %>
+            <p style="margin: 0"><%=loggeo.email %></p>
+            <img
+              src="https://electronicssoftware.net/wp-content/uploads/user.png"
+              alt=""
+              class="header__perfil"
+            />
+            <nav id="logout-user" class="nav-logout-usuario">
+              <ul>
+                <li><a href="#"><box-icon name="chevron-down" type="solid" color="white"></box-icon></a>
+                  <ul>
+                    <li><a href="/logoutadmin"> Cerrar sesión </a></li>
+                  </ul>
+              </ul>
+            </nav>
+          <!-- <a href="/logoutadmin"> salir </a> -->
+          <% } %>
+        </div>
       </div>
       <nav class="nav">
         <ul class="nav__ul">
@@ -23,7 +38,6 @@
           <li><a href="/secciones/ilustraciones" class="nav__item-link">Ilustraciones</a></li>
           <li><a href="/secciones/juegosdemesa" class="nav__item-link">Juegos de mesa</a></li>
           <li><a href="/secciones/videojuegos" class="nav__item-link">Videojuegos</a></li>
-         
         </ul>
       </nav>
     </header>
