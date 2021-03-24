@@ -10,3 +10,4 @@ router.get('/videojuegos', seccioneController.videojuegos);
 
 
 module.exports = router;
+
