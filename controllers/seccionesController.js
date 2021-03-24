@@ -10,18 +10,34 @@ module.exports = {
   },
   fotos: function (req, res) {
     const loggeo = req.session.nombrelog;
-    res.render("secciones/fotos", { title: "Fotos", loggeo });
+    if (loggeo) {
+      res.render("secciones/fotos", { title: "Fotos", loggeo });
+    } else {
+      res.redirect("/login");
+    }
   },
   ilustraciones: function (req, res) {
     const loggeo = req.session.nombrelog;
-    res.render("secciones/ilustraciones", { title: "Ilustraciones", loggeo });
+    if (loggeo) {
+      res.render("secciones/ilustraciones", { title: "Ilustraciones", loggeo });
+    } else {
+      res.redirect("/login");
+    }
   },
   juegosdemesa: function (req, res) {
     const loggeo = req.session.nombrelog;
-    res.render("secciones/juegosdemesa", { title: "Juegos de mesa", loggeo });
+    if (loggeo) {
+      res.render("secciones/juegosdemesa", { title: "Juegos de mesa", loggeo });
+    } else {
+      res.redirect("/login");
+    }
   },
   videojuegos: function (req, res) {
     const loggeo = req.session.nombrelog;
-    res.render("secciones/videojuegos", { title: "Videojuegos", loggeo });
+    if (loggeo) {
+      res.render("secciones/videojuegos", { title: "Videojuegos", loggeo });
+    } else {
+      res.redirect("/login");
+    }
   },
 };
