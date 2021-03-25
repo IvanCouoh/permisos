@@ -33,11 +33,25 @@
       <nav class="nav">
         <ul class="nav__ul">
 
+          <% if (inicioPermiso==1){ %>
           <li><a href="/secciones/inicio" class="nav__item-link">Inicio</a></li>
+          <% } %>
+
+          <% if (fotosPermiso==1){ %>
           <li><a href="/secciones/fotos" class="nav__item-link">Fotos</a></li>
+          <% } %>
+ 
+          <% if (ilustracionesPermiso==1){ %>
           <li><a href="/secciones/ilustraciones" class="nav__item-link">Ilustraciones</a></li>
+          <% } %>
+
+          <% if (juegosdemesaPermiso==1){ %>
           <li><a href="/secciones/juegosdemesa" class="nav__item-link">Juegos de mesa</a></li>
+          <% } %>
+
+          <% if (videojuegosPermiso==1){ %>
           <li><a href="/secciones/videojuegos" class="nav__item-link">Videojuegos</a></li>
+          <% } %>
         </ul>
       </nav>
     </header>

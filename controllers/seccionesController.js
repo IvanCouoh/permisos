@@ -2,48 +2,50 @@ var express = require("express");
 var router = express.Router();
 var conexion = require("../config/conexion");
 
-
 module.exports = {
-  // inicio: function (req, res) {
-  //   const loggeo = req.session.nombrelog;
-  //   if (loggeo) {
-  //     res.render("secciones/inicio", { title: "Inicio", loggeo });
-  //   } else {
-  //     res.redirect("/login");
-  //   }
-  // },
+  permisos: function (req, res,next) {
+   
+      conexion.query(
+        "select * from usuarios where email = ? and pass",
+        [loggeo.email, loggeo.password],
+        function (err, result, fields) {
+          var inicioPermiso = result[0].inicio;
+          var fotosPermiso = result[0].fotos;
+          var ilustracionesPermiso = result[0].ilustraciones;
+          var juegosdemesaPermiso = result[0].juegosdemesa;
+          var videojuegosPermiso = result[0].videojuegos;
 
+          if (inicioPermiso == "inicio") {
+            inicioPermiso = 1;
+          } else {
+            inicioPermiso = 0;
+          }
+          if (fotosPermiso == "fotos") {
+            fotosPermiso = 1;
+          } else {
+            fotosPermiso = 0;
+          }
+          if (ilustracionesPermiso == "ilustraciones") {
+            ilustracionesPermiso = 1;
+          } else {
+            ilustracionesPermiso = 0;
+          }
+          if (juegosdemesaPermiso == "juegosdemesa") {
+            juegosdemesaPermiso = 1;
+          } else {
+            juegosdemesaPermiso = 0;
+          }
+
+          if (videojuegosPermiso == "juegosdemesa") {
+            videojuegosPermiso = 1;
+          } else {
+            videojuegosPermiso = 0;
+          }
+
+           
+        }
+       ) 
+ }
+      
   
-  fotos: function (req, res) {
-    const loggeo = req.session.nombrelog;
-    if (loggeo) {
-      res.render("secciones/fotos", { title: "Fotos", loggeo });
-    } else {
-      res.redirect("/login");
-    }
-  },
-  ilustraciones: function (req, res) {
-    const loggeo = req.session.nombrelog;
-    if (loggeo) {
-      res.render("secciones/ilustraciones", { title: "Ilustraciones", loggeo });
-    } else {
-      res.redirect("/login");
-    }
-  },
-  juegosdemesa: function (req, res) {
-    const loggeo = req.session.nombrelog;
-    if (loggeo) {
-      res.render("secciones/juegosdemesa", { title: "Juegos de mesa", loggeo });
-    } else {
-      res.redirect("/login");
-    }
-  },
-  videojuegos: function (req, res) {
-    const loggeo = req.session.nombrelog;
-    if (loggeo) {
-      res.render("secciones/videojuegos", { title: "Videojuegos", loggeo });
-    } else {
-      res.redirect("/login");
-    }
-  },
 };
