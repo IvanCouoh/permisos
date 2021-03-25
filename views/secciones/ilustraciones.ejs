@@ -1,5 +1,5 @@
 <%- include ../layout/frontOffice/header.ejs %>
-
+<% if (ilustracionesPermiso==1){ %>
     <body>
         <div class="container">
             <h1 class="title-section">Ilustraciones del día</h1>
@@ -64,4 +64,6 @@
                 </div>
             </div>
         </div>
+      
         <%- include ../layout/frontOffice/footer.ejs %>
+        <% } %>

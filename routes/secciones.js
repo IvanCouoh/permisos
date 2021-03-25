@@ -42,6 +42,93 @@ router.get("/inicio", function (req, res) {
         } else {
           videojuegosPermiso = 0;
         }
+        
+        if (inicioPermiso == 0 ){
+
+          res.render("secciones/fotos", {
+            title: "fotos",
+            loggeo,
+            inicioPermiso,
+            fotosPermiso,
+            ilustracionesPermiso,
+            juegosdemesaPermiso,
+            videojuegosPermiso,
+          });
+        }
+
+           
+        if (fotosPermiso == 0 ){
+
+          res.render("secciones/ilustraciones", {
+            title: "Ilustraciones",
+            loggeo,
+            inicioPermiso,
+            fotosPermiso,
+            ilustracionesPermiso,
+            juegosdemesaPermiso,
+            videojuegosPermiso,
+          });
+        } 
+        
+             
+        if (ilustracionesPermiso == 0 ){
+
+          res.render("secciones/juegosdemesa", {
+            title: "juegosdemesa",
+            loggeo,
+            inicioPermiso,
+            fotosPermiso,
+            ilustracionesPermiso,
+            juegosdemesaPermiso,
+            videojuegosPermiso,
+          });
+        } 
+       
+
+             
+        if (juegosdemesaPermiso == 0 ){
+
+          res.render("secciones/videojuegos", {
+            title: "juegosdemesa",
+            loggeo,
+            inicioPermiso,
+            fotosPermiso,
+            ilustracionesPermiso,
+            juegosdemesaPermiso,
+            videojuegosPermiso,
+          });
+        } 
+
+        if (videojuegosPermiso == 0 ){
+
+          res.render("secciones/inicio", {
+            title: "juegosdemesa",
+            loggeo,
+            inicioPermiso,
+            fotosPermiso,
+            ilustracionesPermiso,
+            juegosdemesaPermiso,
+            videojuegosPermiso,
+          });
+        } 
+
+         
+      if (inicioPermiso&&fotosPermiso&&ilustracionesPermiso&&juegosdemesaPermiso&&videojuegosPermiso==0){
+        
+        res.render("secciones/inicio", {
+          title: "Inicio",
+          loggeo,
+          inicioPermiso,
+          fotosPermiso,
+          ilustracionesPermiso,
+          juegosdemesaPermiso,
+          videojuegosPermiso,
+        });
+
+      }
+        
+      else{
+
 
         res.render("secciones/inicio", {
           title: "Inicio",
@@ -52,6 +139,9 @@ router.get("/inicio", function (req, res) {
           juegosdemesaPermiso,
           videojuegosPermiso,
         });
+        
+      }
+
       }
     );
   } else {

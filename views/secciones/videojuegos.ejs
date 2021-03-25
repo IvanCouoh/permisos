@@ -1,5 +1,5 @@
 <%- include ../layout/frontOffice/header.ejs %>
-
+<% if (videojuegosPermiso==1){ %>
     <body>
         <div class="container">
             <div class="container">
@@ -90,4 +90,6 @@
                 </div>
             </div>
         </div>
+      
         <%- include ../layout/frontOffice/footer.ejs %>
+        <% } %>
