@@ -96,7 +96,7 @@ module.exports = {
         );
       }
     }
-    if (req.body.nombre || req.body.email || req.body.pass) {
+    if (req.body.nombre || req.body.email || req.body.pass || req.body.inicio || req.body.fotos || req.body.ilustraciones || req.body.juegosdemesa || req.body.videojuegos) {
       const loggeo = req.session.nombrelogadm;
       usuario.actualizar(conexion, req.body, function (error) {
         res.render("usuarios/crear", {
