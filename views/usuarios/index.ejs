@@ -3,13 +3,14 @@
     <a href="/usuarios/crear" class="btn btn-primary">Crear nuevo usuario</a>
     <br /><br />
 
-    <table class="table table-striped">
+    <table class="table table-striped ">
       <thead class="table-dark">
         <tr>
           <th scope="col">Nombre</th>
           <th scope="col">Correo electronico</th>
-          <!-- <th scope="col">Contraseña</th> -->
+          <th scope="col">Permisos</th>
           <th scope="col">Imagen</th>
+
           <th scope="col">Acciones</th>
         </tr>
       </thead>
@@ -22,6 +23,7 @@
             <td>
               <%=usuarios[usuario].email %>
             </td>
+            <td><%=usuarios[usuario].inicio%>, <%=usuarios[usuario].fotos%>, <%=usuarios[usuario].ilustraciones%>, <%=usuarios[usuario].juegosdemesa%>, <%=usuarios[usuario].videojuegos%>     </td>
             <!-- <td>
               <input type="password" name="" id="" disabled style="border: none;" value="<%=usuarios[usuario].pass %>">
             </td> -->
