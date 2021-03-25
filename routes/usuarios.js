@@ -71,7 +71,7 @@ router.post("/session", (req, res) => {
     conexion.query(
       "SELECT email, pass, privilegio FROM usuarios WHERE email = ? AND pass = ? and privilegio = 'usuario'",
       [datos.email, datos.password],
-      function (err, resultados) {
+      function (err, resultados, fields) {
         if (resultados.length > 0) {
           req.session.nombrelog = datos;
           res.redirect("/secciones/inicio");
@@ -87,6 +87,7 @@ router.post("/session", (req, res) => {
           });
         }
         console.log(resultados);
+      
       }
     );
   }
