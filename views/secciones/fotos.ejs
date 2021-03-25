@@ -1,6 +1,8 @@
 <%- include ../layout/frontOffice/header.ejs %>
-
+<% if (fotosPermiso==1){ %>
     <body>
+
+
         <div class="container">
             <h1 class="title-section">Fotos publicadas recientemente</h1>
             <div class="fotos__container-cards">
@@ -102,4 +104,6 @@
                 </div>
             </div>
         </div>
+      
         <%- include ../layout/frontOffice/footer.ejs %>
+        <% } %>

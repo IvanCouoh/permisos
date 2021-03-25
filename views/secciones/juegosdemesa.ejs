@@ -1,5 +1,5 @@
 <%- include ../layout/frontOffice/header.ejs %>
-
+<% if (juegosdemesaPermiso==1){ %>
     <body>
         <div class="container">
             <h1 class="title-section">Juegos de mesa más recomendados</h1>
@@ -70,4 +70,6 @@
         <br/>
         <br/>
         <br/>
+        
         <%- include ../layout/frontOffice/footer.ejs %>
+        <% } %>
