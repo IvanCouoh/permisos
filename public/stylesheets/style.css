@@ -78,9 +78,13 @@ body {
   display: block;
 }
 
-.dropdown a:hover {background-color: #ddd;}
+.dropdown a:hover {
+  background-color: #ddd;
+}
 
-.show {display: block;}
+.show {
+  display: block;
+}
 
 .header__logo {
   letter-spacing: 2px;
@@ -433,14 +437,14 @@ a {
   transition: 0.5s;
 }
 
-.title-section{
+.title-section {
   margin-top: 130px;
   margin-bottom: -120px;
   text-align: center;
   font-size: 20pt;
 }
 
-.footer-frontOffice{
+.footer-frontOffice {
   background-color: #720303;
   display: flex;
   justify-content: center;
@@ -451,18 +455,21 @@ a {
   box-shadow: 0px 10px 5px #888, 0px -3px 10px #888;
 }
 
-.columna{
-  display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5px;
+.columna {
+  display: flex !important;
+  flex-direction: column !important;
+  
 }
 
-.form-inline{
+.form-inline {
   width: 100%;
 }
-.d-flex{
+
+.d-flex {
   width: 100%;
   justify-content: center;
+  margin-top: 3px;
+  margin-bottom: 8px;
 }
 
 @media screen and (min-width: 1024px) {
