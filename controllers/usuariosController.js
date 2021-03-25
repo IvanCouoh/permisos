@@ -30,7 +30,7 @@ module.exports = {
 
   guardar: function (req, res) {
     console.log(req.body);
-    console.log(req.file.filename);
+    console.log(req.file.filename); 
     const loggeo = req.session.nombrelogadm;
     usuario.insertar(conexion, req.body, req.file, function (err) {
       res.render("usuarios/crear", {

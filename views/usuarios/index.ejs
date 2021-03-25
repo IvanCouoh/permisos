@@ -7,8 +7,8 @@
     <thead class="table-dark">
       <tr>
         <th scope="col">Nombre</th>
-        <th scope="col">Correo electronico</th>
-        <th scope="col">Contraseña</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Accesos</th>
         <th scope="col">Imagen</th>
         <th scope="col"></th>
       </tr>
@@ -18,7 +18,9 @@
       <tr>
         <td><%=usuarios[usuario].nombre %></td>
         <td><%=usuarios[usuario].email %></td>
-        <td><%=usuarios[usuario].pass %></td>
+        <td><%=usuarios[usuario].inicio%>, <%=usuarios[usuario].fotos%>, <%=usuarios[usuario].ilustraciones%>, <%=usuarios[usuario].juegosdemesa%>, <%=usuarios[usuario].videojuegos%>     </td>
+
+    
         <td>
           <img
             class="img-thumbnail"
