@@ -1,5 +1,7 @@
 <%- include ../layout/backOffice/header.ejs %>
-  <div class="container">
+  <div class="container" style="margin-top: 75px;">
+    <a href="/usuarios/" class="btn btn-primary">Regresar</a>
+    <br /><br />
     <h2>Nuevo usuario</h2>
     <form action="/usuarios" method="POST" enctype="multipart/form-data">
       <div class="form-group">
@@ -50,5 +52,7 @@
       <br />
       <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
+    <br>
+    <br>
   </div>
   <%- include ../layout/backOffice/footer.ejs %>

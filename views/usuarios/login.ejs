@@ -12,31 +12,26 @@
 <body class="body__login">
   <form action="/session" method="POST" class="form__login">
     <h2 class="h2__login">Iniciar sesión</h2>
-    <input class="input__login"  type="text" name="email" placeholder="Nombre de usuario" required />
-    <input class="input__login"  type="password" name="password" placeholder="Contraseña" required />
+    <input class="input__login" type="text" name="email" placeholder="Nombre de usuario" required />
+    <input class="input__login" type="password" name="password" placeholder="Contraseña" required />
     <input class="inputbtn__login" type="submit" value="Acceder" />
   </form>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-  <% if (typeof alert != "undefined")  { %>
-   <script>
-   Swal.fire({
-	 title:'<%= alertTitle %>',
-	 text:'<%= alertMessage %>',
-	 icon:'<%= alertIcon %>',
-	 showConfirmButton: <%= showConfirmButton %>,
-	 timer: <%= timer %>
-   }).then(()=>{
-	 window.location='/<%= ruta %>'
-   })
-   </script>
- <% } %>
-
-
-
-
-
+  <% if (typeof alert !="undefined" ) { %>
+    <script>
+      Swal.fire({
+        title: '<%= alertTitle %>',
+        text: '<%= alertMessage %>',
+        icon: '<%= alertIcon %>',
+        showConfirmButton: <%= showConfirmButton %>,
+        timer: <%= timer %>
+   }).then(() => {
+          window.location = '/<%= ruta %>'
+        })
+    </script>
+    <% } %>
 </body>
 
 </html>

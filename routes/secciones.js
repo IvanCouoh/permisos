@@ -10,7 +10,7 @@ router.get("/inicio", function (req, res) {
       "select * from usuarios where email = ? and pass",
       [loggeo.email, loggeo.password],
       function (err, result, fields) {
-       var  inicioPermiso = result[0].inicio;
+        var inicioPermiso = result[0].inicio;
         var fotosPermiso = result[0].fotos;
         var ilustracionesPermiso = result[0].ilustraciones;
         var juegosdemesaPermiso = result[0].juegosdemesa;
@@ -92,7 +92,6 @@ router.get("/fotos", function (req, res) {
         } else {
           juegosdemesaPermiso = 0;
         }
-
         if (videojuegosPermiso == "videojuegos") {
           videojuegosPermiso = 1;
         } else {
@@ -148,7 +147,6 @@ router.get("/ilustraciones", function (req, res) {
         } else {
           juegosdemesaPermiso = 0;
         }
-
         if (videojuegosPermiso == "videojuegos") {
           videojuegosPermiso = 1;
         } else {
@@ -203,7 +201,6 @@ router.get("/juegosdemesa", function (req, res) {
         } else {
           juegosdemesaPermiso = 0;
         }
-
         if (videojuegosPermiso == "videojuegos") {
           videojuegosPermiso = 1;
         } else {
@@ -258,7 +255,6 @@ router.get("/videojuegos", function (req, res) {
         } else {
           juegosdemesaPermiso = 0;
         }
-
         if (videojuegosPermiso == "videojuegos") {
           videojuegosPermiso = 1;
         } else {

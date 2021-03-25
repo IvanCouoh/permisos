@@ -17,18 +17,12 @@ var cargar = multer({
   storage: rutaAlmacen,
 });
 
-/* GET home page. */
-
 router.get("/", usuariosController.index);
 router.get("/crear", usuariosController.crear);
 router.post("/", cargar.single("imagen"), usuariosController.guardar);
 router.post("/eliminar/:id", usuariosController.eliminar);
 router.get("/editar/:id", usuariosController.editar);
-router.post(
-  "/actualizar",
-  cargar.single("imagen"),
-  usuariosController.actualizar
-);
+router.post("/actualizar", cargar.single("imagen"), usuariosController.actualizar);
 
 router.get("/logoutadmin", function (req, res) {
   req.session.destroy(() => {
@@ -39,7 +33,7 @@ router.get("/logoutadmin", function (req, res) {
 router.get("/login", function (req, res, next) {
   const loggeo = req.session.nombrelog;
   const loggeoadm = req.session.nombrelogadm;
-  
+
   if (loggeo) {
     res.redirect("/secciones/inicio");
   }
@@ -79,15 +73,14 @@ router.post("/session", (req, res) => {
           res.render("usuarios/login", {
             alert: true,
             alertTitle: "Error",
-            alertMessage: "USUARIO y/o PASSWORD incorrectas",
+            alertMessage: "El usuario o contraseña son incorrectos 😪",
             alertIcon: "error",
-            showConfirmButton: true,
-            timer: false,
+            showConfirmButton: false,
+            timer: 2000,
             ruta: "login",
           });
         }
         console.log(resultados);
-      
       }
     );
   }

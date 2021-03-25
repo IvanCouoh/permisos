@@ -1,19 +1,22 @@
 <%- include ../layout/backOffice/header.ejs %>
-<div class="container">
+<div class="container" style="margin-top: 75px;">
+  <a href="/usuarios/" class="btn btn-primary">Regresar</a>
+    <br /><br />
+    <h2>Editar usuario</h2>
     <form action="../actualizar/" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="id" value="<%= usuarios.id %> ">
       <div class="form-group">
         <label for="my-input">Nombre:</label>
         <input id="my-input" class="form-control" type="text" name="nombre" value="<%= usuarios.nombre %> " required/>
-      </div>
+      </div><br>
       <div class="form-group">
         <label for="my-input">Email:</label>
         <input id="my-input" class="form-control" type="email" name="email" value="<%= usuarios.email %> " required/>
-      </div>
+      </div><br>
       <div class="form-group">
         <label for="my-input">Contraseña:</label>
         <input id="my-input" class="form-control" type="password" name="pass" value="<%= usuarios.pass %> " required/>
-      </div>
+      </div><br>
       <div class="form-group">
         <label for="my-input">Imagen:</label>
         <img class="img-thumbnail" src="../../images/<%= usuarios.imagen %>" width="100" alt="">
@@ -85,6 +88,7 @@
       <br />
       <button class="btn btn-primary" type="submit">Guardar</button>
     </form>
-    
+    <br>
+    <br>
 </div>
 <%- include ../layout/backOffice/footer.ejs %>

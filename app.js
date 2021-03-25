@@ -10,8 +10,6 @@ var loginRouter = require('./routes/usuarios');
 var flash = require('connect-flash');
 var app = express();
 
-
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -30,19 +28,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//- Invocamos a dotenv
-const dotenv = require('dotenv');
-dotenv.config({ path: './env/.env'}); 
-
 // Invocamos a bycryptjs
 const bcrypt = require('bcryptjs');
-
 
 app.use('/', loginRouter);
 app.use('/usuarios', usuariosRouter)
 app.use('/secciones', seccionesRouter);
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -59,8 +50,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-
-
 
 module.exports = app;

@@ -1,61 +1,74 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-    <link rel="stylesheet" href="/stylesheets/cssalert.css" />
-    <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
-  </head>
-  <body>
-    <header class="header">
-      <div class="header__top">
-        <h4 class="header__logo">Mi sitio web</h4>
-        <div class="header__datos-user">
-          <% if (loggeo){ %>
-            <p style="margin: 0"><%=loggeo.email %></p>
-            <img
-              src="https://electronicssoftware.net/wp-content/uploads/user.png"
-              alt=""
-              class="header__perfil"
-            />
-            <nav id="logout-user" class="nav-logout-usuario">
-              <ul>
-                <li><a href="#"><box-icon name="chevron-down" type="solid" color="white"></box-icon></a>
-                  <ul>
-                    <li><a href="/logoutadmin"> Cerrar sesión </a></li>
-                  </ul>
-              </ul>
-            </nav>
-          <!-- <a href="/logoutadmin"> salir </a> -->
-          <% } %>
-        </div>
-      </div>
-      <nav class="nav">
-        <ul class="nav__ul">
 
-          <% if (inicioPermiso==1){ %>
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/cssalert.css" />
+  <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__top">
+      <h4 class="header__logo">Mi sitio web</h4>
+      <div class="header__datos-user">
+        <% if (loggeo){ %>
+          <p style="margin: 0">
+            <%=loggeo.email %>
+          </p>
+          <img src="https://electronicssoftware.net/wp-content/uploads/user.png" alt="" class="header__perfil" />
+          <div class="dropdown">
+            <button onclick="showLogOut()" class="dropbtn">▾</button>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="/logoutadmin">Cerrar sesión</a>
+            </div>
+          </div>
+          <% } %>
+      </div>
+    </div>
+    <nav class="nav">
+      <ul class="nav__ul">
+
+        <% if (inicioPermiso==1){ %>
           <li><a href="/secciones/inicio" class="nav__item-link">Inicio</a></li>
           <% } %>
 
-          <% if (fotosPermiso==1){ %>
+        <% if (fotosPermiso==1){ %>
           <li><a href="/secciones/fotos" class="nav__item-link">Fotos</a></li>
           <% } %>
- 
-          <% if (ilustracionesPermiso==1){ %>
+
+        <% if (ilustracionesPermiso==1){ %>
           <li><a href="/secciones/ilustraciones" class="nav__item-link">Ilustraciones</a></li>
           <% } %>
 
-          <% if (juegosdemesaPermiso==1){ %>
+        <% if (juegosdemesaPermiso==1){ %>
           <li><a href="/secciones/juegosdemesa" class="nav__item-link">Juegos de mesa</a></li>
           <% } %>
 
-          <% if (videojuegosPermiso==1){ %>
+        <% if (videojuegosPermiso==1){ %>
           <li><a href="/secciones/videojuegos" class="nav__item-link">Videojuegos</a></li>
           <% } %>
-        </ul>
-      </nav>
-    </header>
-
-   
-      
-
+      </ul>
+    </nav>
+  </header>
+  <script>
+    function showLogOut() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+    
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+    </script>

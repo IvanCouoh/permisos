@@ -18,8 +18,6 @@ module.exports = {
       });
     } else {
       res.redirect("/login");
-     
-
     }
   },
 
@@ -37,7 +35,7 @@ module.exports = {
         loggeo,
         alert: true,
         alertTitle: "Registro",
-        alertMessage: "Se ha registrado correctamente el usuario.",
+        alertMessage: "El usuario se ha registrado con éxito 🥳",
         alertIcon: "success",
         showConfirmButton: false,
         timer: 1500,
@@ -57,7 +55,7 @@ module.exports = {
         if (borrar.existsSync(nombreImagen)) {
           borrar.unlinkSync(nombreImagen);
         }
-        usuario.borrar(conexion, req.params.id, function (error) {});
+        usuario.borrar(conexion, req.params.id, function (error) { });
         res.redirect("/usuarios");
       }
     );
@@ -75,7 +73,6 @@ module.exports = {
   },
   actualizar: function (req, res) {
     console.log(req.body.nombre);
-    // console.log(req.file.filename);
     if (req.file) {
       if (req.file.filename) {
         usuario.retornarDatosID(
@@ -90,7 +87,7 @@ module.exports = {
               conexion,
               req.body,
               req.file,
-              function (error) {}
+              function (error) { }
             );
           }
         );
@@ -102,8 +99,8 @@ module.exports = {
         res.render("usuarios/crear", {
           loggeo,
           alert: true,
-          alertTitle: "Actualización",
-          alertMessage: "El usuario se ha actualizado correctamente.",
+          alertTitle: "",
+          alertMessage: "Se han actualizado los datos del usuario exitosamente ✔",
           alertIcon: "success",
           showConfirmButton: false,
           timer: 1500,
