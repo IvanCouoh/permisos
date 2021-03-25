@@ -30,7 +30,7 @@
             <td>
               <img class="img-thumbnail" width="100" src="/images/<%=usuarios[usuario].imagen %>" alt="" />
             </td>
-            <td>
+            <td class="columna">
               <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
                 <form class="form-inline" method="GET" action="/usuarios/editar/<%=usuarios[usuario].id %>">
                   <button class="btn btn-warning text-white d-flex" type="submit">
@@ -38,7 +38,7 @@
                     <box-icon type='solid' name='edit-alt' color='white'></box-icon>
                   </button>
                 </form>
-              </div>&nbsp;&nbsp;
+              </div>
               <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
                 <form class="form-inline" method="POST" action="/usuarios/eliminar/<%=usuarios[usuario].id %>">
                   <button class="btn btn-danger text-white d-flex" type="submit">
