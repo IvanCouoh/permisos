@@ -12,13 +12,10 @@ module.exports = {
         conexion.query('delete from usuarios where id = ?', [id], funcion)
     },
     actualizar: function (conexion, datos, funcion) {
-        conexion.query('UPDATE usuarios SET nombre = ?, email = ?, pass=? WHERE id = ?', [datos.nombre, datos.email, datos.pass, datos.id], funcion)
+        conexion.query('UPDATE usuarios SET nombre = ?, email = ?, pass=?, inicio = ?, fotos = ?, ilustraciones = ?, juegosdemesa = ?, videojuegos = ? WHERE id = ?', [datos.nombre, datos.email, datos.pass, datos.inicio, datos.fotos, datos.ilustraciones, datos.juegosdemesa, datos.videojuegos, datos.id], funcion)
     },
     actualizarImagen: function (conexion, datos, imagen, funcion) {
         conexion.query('update usuarios set imagen=? where id=?', [imagen.filename, datos.id], funcion)
-    },
-    obtenerSecciones: function (conexion, funcion) {
-        conexion.query('select inicio, fotos from usuarios', funcion)
     },
 }
 
