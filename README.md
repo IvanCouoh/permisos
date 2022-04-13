@@ -1,6 +1,12 @@
 # Permisos de usuarios
  Aplicación web enfocado a los permisos y privilegios a usuarios.
 
+__Datos de accesdos:__
+
+- [Ver demo de la aplicación](https://permisos-de-usuario.herokuapp.com/login)
+- **User**: admin@admin.com
+- **Password**: admin
+
 # Capturas
 
 * ## Admin
